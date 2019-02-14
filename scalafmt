@@ -10,6 +10,7 @@ COURSIER=coursier
 if ! command -v $COURSIER > /dev/null 2>&1; then
   COURSIER="$HOME/.coursier/coursier"
   if ! command -v $COURSIER > /dev/null 2>&1; then
+    mkdir -p $(dirname "$COURSIER") || die "Failed to create $(dirname "$COURSIER")"
     curl -Lo "$COURSIER" https://git.io/coursier-cli || die "Failed to download coursier"
     chmod +x "$COURSIER"
   fi
