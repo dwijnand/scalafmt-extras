@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -o pipefail
+
+curl -Lo "$HOME/.coursier/coursier" https://git.io/coursier-cli
