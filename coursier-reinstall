@@ -4,5 +4,6 @@ set -o pipefail
 die() { echo "Aborting: $*"; exit 1; }
 
 COURSIER="$HOME/.coursier/coursier"
+mkdir -p $(dirname "$COURSIER") || die "Failed to create $(dirname "$COURSIER")"
 curl -Lo "$COURSIER" https://git.io/coursier-cli || die "Failed to download coursier"
 chmod +x "$COURSIER" || die "Failed to make coursier executable"
