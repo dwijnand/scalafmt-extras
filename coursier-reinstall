@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
 set -o pipefail
+die() { echo "Aborting: $*"; exit 1; }
 
-curl -Lo "$HOME/.coursier/coursier" https://git.io/coursier-cli
+COURSIER="$HOME/.coursier/coursier"
+curl -Lo "$COURSIER" https://git.io/coursier-cli || die "Failed to download coursier"
+chmod +x "$COURSIER" || die "Failed to make coursier executable"

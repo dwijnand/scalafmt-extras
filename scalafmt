@@ -12,7 +12,7 @@ if ! command -v $COURSIER > /dev/null 2>&1; then
   if ! command -v $COURSIER > /dev/null 2>&1; then
     mkdir -p $(dirname "$COURSIER") || die "Failed to create $(dirname "$COURSIER")"
     curl -Lo "$COURSIER" https://git.io/coursier-cli || die "Failed to download coursier"
-    chmod +x "$COURSIER"
+    chmod +x "$COURSIER" || die "Failed to make coursier executable"
   fi
 fi
 
